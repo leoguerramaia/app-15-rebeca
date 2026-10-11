@@ -10,7 +10,7 @@ export default function HomePage() {
   const [activeModal, setActiveModal] = useState(null); // 'admin' | 'portaria' | 'guest'
   const [authMode, setAuthMode] = useState('login'); // 'login' | 'register'
 
-  // Estados Form Login/Registo limpos por padrão
+  // Estados Form Login/Registo
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -24,7 +24,6 @@ export default function HomePage() {
   const [guestGuestsList, setGuestGuestsList] = useState([]);
   const [generatedOtp, setGeneratedOtp] = useState('');
 
-  // Login Admin / Portaria (Exigindo digitação manual)
   const handleLogin = async (e) => {
     e.preventDefault();
     const roleTarget = activeModal === 'admin' ? 'admin' : 'portaria';
@@ -56,7 +55,6 @@ export default function HomePage() {
     }
   };
 
-  // Registo de novos utilizadores (pendentes)
   const handleRegister = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -87,7 +85,6 @@ export default function HomePage() {
     }
   };
 
-  // Fluxo Convidado WhatsApp
   const handleRequestOtp = async (e) => {
     e.preventDefault();
     const cleanPhone = phoneInput.replace(/\D/g, '');
@@ -174,7 +171,7 @@ export default function HomePage() {
 
       </div>
 
-      {/* MODAL ADMIN / PORTARIA (LOGIN & REGISTO) COM CAMPOS VAZIOS */}
+      {/* MODAL ADMIN / PORTARIA */}
       {(activeModal === 'admin' || activeModal === 'portaria') && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
           <div className="bg-white max-w-sm w-full p-6 rounded-3xl shadow-xl space-y-4 text-left">
@@ -281,7 +278,6 @@ export default function HomePage() {
           </div>
         </div>
       )}
-
     </div>
   );
 }
