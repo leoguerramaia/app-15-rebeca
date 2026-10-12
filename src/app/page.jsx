@@ -21,7 +21,7 @@ export default function HomePage() {
   const [phone, setPhone] = useState('');
   const [forgotPhone, setForgotPhone] = useState('');
 
-  // Estados Convidado (WhatsApp OTP)
+  // Estados Convidado (WhatsApp OTP Automático)
   const [phoneInput, setPhoneInput] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [step, setStep] = useState(1);
@@ -107,19 +107,28 @@ export default function HomePage() {
   const handleRequestOtp = async (e) => {
     e.preventDefault();
     const cleanPhone = phoneInput.replace(/\D/g, '');
-    const { data, error } = await supabase.from('guests').select('*').ilike('phone', `%${cleanPhone}%`);
+    
+    // 1. Checagem rigorosa na base de dados para saber se o número está cadastrado
+    const { data, error } = await supabase
+      .from('guests')
+      .select('*')
+      .ilike('phone', `%${cleanPhone}%`);
 
     if (error || !data || data.length === 0) {
-      alert('Este número de telemóvel não foi encontrado na lista de convidados.');
+      alert('Não há convites vinculados a esse número.');
       return;
     }
 
+    // 2. Se estiver cadastrado, gera o código de confirmação
     setGuestGuestsList(data);
     const code = Math.floor(1000 + Math.random() * 9000).toString();
     setGeneratedOtp(code);
 
+    // 3. Dispara o WhatsApp automaticamente com a mensagem e o código preenchidos
     const message = encodeURIComponent(`🌹 Olá! O seu código de acesso ao Baile de 15 Anos Rebeca Guerra Maia (Tema: Bela e a Fera) é: *${code}*`);
     window.open(`https://wa.me/55${cleanPhone}?text=${message}`, '_blank');
+
+    // 4. Avança para o passo de inserção do código OTP
     setStep(2);
   };
 
@@ -135,7 +144,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50/70 via-yellow-50/20 to-amber-100/50 flex flex-col font-serif relative">
       
-      {/* 3. BOTÃO DE LOGIN NO CANTO SUPERIOR DIREITO */}
+      {/* BOTÃO DE LOGIN NO CANTO SUPERIOR DIREITO */}
       <header className="absolute top-6 right-6 z-20 font-sans">
         <button
           onClick={() => { setIsAuthModalOpen(true); setAuthMode('login'); }}
@@ -153,13 +162,11 @@ export default function HomePage() {
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-wider uppercase border border-amber-300 shadow-sm font-sans">
               <Crown size={14} className="text-amber-600" /> Baile Real • Bela e a Fera
             </span>
-            {/* 1. NOME COMPLETO REBECA GUERRA MAIA */}
             <h1 className="text-3xl font-extrabold text-slate-900 font-serif leading-snug">
               Aniversário 15 Anos<br />Rebeca Guerra Maia
             </h1>
           </div>
 
-          {/* 2. APENAS A ÁREA DO CONVIDADO COM O SUBTÍTULO SOLICITADO */}
           <div className="pt-2 font-sans">
             <button
               onClick={() => { setIsGuestModalOpen(true); setStep(1); setPhoneInput(''); setOtpCode(''); }}
@@ -181,7 +188,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* MODAL DE LOGIN / CADASTRO / RECUPERAÇÃO DE SENHA (ABERTO PELO BOTÃO SUPERIOR) */}
+      {/* MODAL DE LOGIN / CADASTRO / RECUPERAÇÃO DE SENHA */}
       {isAuthModalOpen && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 font-sans">
           <div className="bg-white max-w-sm w-full p-6 rounded-3xl shadow-2xl space-y-4 text-left border border-amber-200">
@@ -295,15 +302,15 @@ export default function HomePage() {
 
             {step === 1 && (
               <form onSubmit={handleRequestOtp} className="space-y-4">
-                <p className="text-xs text-slate-600">Insira o seu número de telemóvel para receber o código de acesso via WhatsApp:</p>
+                <p className="text-xs text-slate-600">Insira o seu número de telemóvel para verificar o convite e receber o código automático no WhatsApp:</p>
                 <input type="tel" placeholder="Ex: 86999999999" value={phoneInput} onChange={(e) => setPhoneInput(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" required />
-                <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-3 rounded-xl text-sm shadow-sm">Enviar Código via WhatsApp</button>
+                <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-3 rounded-xl text-sm shadow-sm">Verificar e Enviar Código</button>
               </form>
             )}
 
             {step === 2 && (
               <form onSubmit={handleVerifyOtp} className="space-y-4">
-                <p className="text-xs text-slate-600">Insira o código enviado (Dica: use <b>1234</b> se preferir):</p>
+                <p className="text-xs text-slate-600">Insira o código enviado para o seu WhatsApp (Dica: use <b>1234</b> se preferir):</p>
                 <input type="text" placeholder="1234" value={otpCode} onChange={(e) => setOtpCode(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-center text-lg font-bold tracking-widest focus:outline-none focus:ring-2 focus:ring-emerald-500" required />
                 <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-2.5 rounded-xl text-sm shadow-sm">Confirmar Código</button>
               </form>
