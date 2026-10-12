@@ -202,6 +202,32 @@ export default function Dashboard() {
     window.open(`https://wa.me/55${cleanPhone}?text=${message}`, '_blank');
   };
 
+  // Função unificada para renderizar o status com primeira letra maiúscula e cores consistentes
+  const renderStatusBadge = (statusValue, isCompact = false) => {
+    const st = (statusValue || 'pendente').toLowerCase();
+    const padding = isCompact ? 'px-2.5 py-1 text-xs' : 'px-3 py-1.5 text-xs font-semibold';
+
+    if (st === 'confirmado') {
+      return (
+        <span className={`rounded-full font-semibold bg-green-100 text-green-700 ${padding}`}>
+          Confirmado
+        </span>
+      );
+    }
+    if (st === 'recusado') {
+      return (
+        <span className={`rounded-full font-semibold bg-red-100 text-red-700 ${padding}`}>
+          Recusado
+        </span>
+      );
+    }
+    return (
+      <span className={`rounded-full font-semibold bg-amber-100 text-amber-700 ${padding}`}>
+        Pendente
+      </span>
+    );
+  };
+
   const individualGuests = guests.filter(g => !g.family_group);
   const familyGroupsMap = {};
   guests.filter(g => g.family_group).forEach(g => {
@@ -247,14 +273,14 @@ export default function Dashboard() {
         
         {/* Painel Totalizador */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Máximo</p><p className="text-xl font-bold text-slate-800">{MAX_CONVIDADOS_ADULTOS}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Enviados</p><p className="text-xl font-bold text-pink-600">{convitesEnviados}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Disponíveis</p><p className="text-xl font-bold text-blue-600">{convitesDisponiveis >= 0 ? convitesDisponiveis : 0}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Adultos Conf.</p><p className="text-xl font-bold text-green-600">{adultosConfirmados.length}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Crianças Conf.</p><p className="text-xl font-bold text-emerald-600">{criancasConfirmadas.length}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Adultos Pend.</p><p className="text-xl font-bold text-amber-500">{adultosPendentes.length}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Crianças Pend.</p><p className="text-xl font-bold text-orange-400">{criancasPendentes.length}</p></div>
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[11px] font-semibold text-gray-400 uppercase mb-1">Recusados</p><p className="text-xl font-bold text-red-600">{convitesRecusadosTotal}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Máximo</p><p className="text-xl font-bold text-slate-800">{MAX_CONVIDADOS_ADULTOS}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Enviados</p><p className="text-xl font-bold text-pink-600">{convitesEnviados}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Disponíveis</p><p className="text-xl font-bold text-blue-600">{convitesDisponiveis >= 0 ? convitesDisponiveis : 0}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[9px] font-semibold text-gray-400 uppercase mb-1 leading-tight">Adultos Confirmados</p><p className="text-xl font-bold text-green-600">{adultosConfirmados.length}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[9px] font-semibold text-gray-400 uppercase mb-1 leading-tight">Crianças Confirmadas</p><p className="text-xl font-bold text-emerald-600">{criancasConfirmadas.length}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[9px] font-semibold text-gray-400 uppercase mb-1 leading-tight">Adultos Pendentes</p><p className="text-xl font-bold text-amber-500">{adultosPendentes.length}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[9px] font-semibold text-gray-400 uppercase mb-1 leading-tight">Crianças Pendentes</p><p className="text-xl font-bold text-orange-400">{criancasPendentes.length}</p></div>
+          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 text-center"><p className="text-[10px] font-semibold text-gray-400 uppercase mb-1">Recusados</p><p className="text-xl font-bold text-red-600">{convitesRecusadosTotal}</p></div>
         </div>
 
         {/* Modal de Edição */}
@@ -342,15 +368,16 @@ export default function Dashboard() {
                 <>
                   {individualGuests.map((guest) => {
                     const st = guest.attendance_status || (guest.confirmed ? 'confirmado' : 'pendente');
+                    const formattedCategory = (guest.category || '').toLowerCase() === 'crianca' ? 'Criança' : 'Adulto';
                     return (
                       <tr key={guest.id} className="hover:bg-slate-50">
                         <td className="p-4 font-medium text-slate-800">{guest.name}</td>
-                        <td className="p-4"><span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${guest.category === 'crianca' ? 'bg-purple-100 text-purple-700' : 'bg-slate-100'}`}>{guest.category === 'crianca' ? 'Criança' : 'Adulto'}</span></td>
+                        <td className="p-4"><span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${guest.category === 'crianca' ? 'bg-purple-100 text-purple-700' : 'bg-slate-100'}`}>{formattedCategory}</span></td>
                         <td className="p-4 text-slate-600">{guest.phone}</td>
-                        <td className="p-4"><span className={`px-3 py-1.5 rounded-full text-xs font-semibold ${st === 'confirmado' ? 'bg-green-100 text-green-700' : st === 'recusado' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'}`}>{st}</span></td>
+                        <td className="p-4">{renderStatusBadge(st)}</td>
                         <td className="p-4"><div className="w-12 h-12 bg-white p-1 border rounded-md"><QRCodeSVG value={guest.qr_code} size={100} style={{ width: '100%', height: '100%' }} /></div></td>
                         <td className="p-4 text-right space-x-2">
-                          {st === 'confirmado' ? (
+                          {st.toLowerCase() === 'confirmado' ? (
                             <button onClick={() => sendWhatsApp(guest, null, true)} className="bg-purple-600 text-white px-3 py-2 rounded-lg text-xs font-medium"><QrCode size={14} className="inline mr-1"/> QR Code</button>
                           ) : (
                             <button onClick={() => sendWhatsApp(guest, null, false)} className="bg-emerald-600 text-white px-3 py-2 rounded-lg text-xs font-medium"><Send size={14} className="inline mr-1"/> Convite</button>
@@ -364,7 +391,10 @@ export default function Dashboard() {
 
                   {Object.entries(familyGroupsMap).map(([groupKey, members]) => {
                     const isExpanded = expandedFamilies[groupKey];
-                    const confirmedCount = members.filter(m => m.attendance_status === 'confirmado' || (m.confirmed && !m.attendance_status)).length;
+                    const confirmedCount = members.filter(m => {
+                      const st = m.attendance_status || (m.confirmed ? 'confirmado' : 'pendente');
+                      return st.toLowerCase() === 'confirmado';
+                    }).length;
                     return (
                       <Fragment key={groupKey}>
                         <tr className="bg-pink-50/30 border-t-2 border-pink-100">
@@ -377,29 +407,33 @@ export default function Dashboard() {
                           </td>
                           <td className="p-4 text-xs text-gray-500">Família</td>
                           <td className="p-4 text-slate-600">{members[0]?.phone}</td>
-                          <td className="p-4"><span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">{confirmedCount} de {members.length} confirmados</span></td>
+                          <td className="p-4"><span className="px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">{confirmedCount} de {members.length} Confirmados</span></td>
                           <td className="p-4 text-xs text-gray-400">Ver membros</td>
                           <td className="p-4 text-right space-x-2">
                             <button onClick={() => sendWhatsApp(members[0], members, false)} className="bg-emerald-600 text-white px-3 py-2 rounded-lg text-xs font-medium"><Send size={14} className="inline mr-1"/> Convite</button>
                             <button onClick={() => deleteFamilyGroup(groupKey)} className="p-2 text-red-400 hover:text-red-600"><Trash2 size={18} /></button>
                           </td>
                         </tr>
-                        {isExpanded && members.map(m => (
-                          <tr key={m.id} className="bg-white border-l-4 border-l-pink-400">
-                            <td className="p-3 pl-10 text-slate-700 font-medium">{m.name}</td>
-                            <td className="p-3"><span className="text-xs px-2 py-0.5 bg-slate-100 rounded">{m.category}</span></td>
-                            <td className="p-3 text-sm text-slate-500">{m.phone}</td>
-                            <td className="p-3"><span className="text-xs px-2.5 py-1 rounded-full bg-amber-100 text-amber-700">{m.attendance_status || 'pendente'}</span></td>
-                            <td className="p-3"><div className="w-10 h-10 bg-white p-1 border rounded"><QRCodeSVG value={m.qr_code} size={80} style={{ width: '100%', height: '100%' }} /></div></td>
-                            <td className="p-3 text-right space-x-1">
-                              {m.attendance_status === 'confirmado' && (
-                                <button onClick={() => sendWhatsApp(m, null, true)} className="p-1.5 bg-purple-600 text-white rounded"><QrCode size={16}/></button>
-                              )}
-                              <button onClick={() => startEditing(m)} className="p-1.5 text-blue-400"><Edit3 size={16}/></button>
-                              <button onClick={() => deleteGuest(m.id)} className="p-1.5 text-red-400"><Trash2 size={16}/></button>
-                            </td>
-                          </tr>
-                        ))}
+                        {isExpanded && members.map(m => {
+                          const memberSt = m.attendance_status || (m.confirmed ? 'confirmado' : 'pendente');
+                          const formattedCategory = (m.category || '').toLowerCase() === 'crianca' ? 'Criança' : 'Adulto';
+                          return (
+                            <tr key={m.id} className="bg-white border-l-4 border-l-pink-400">
+                              <td className="p-3 pl-10 text-slate-700 font-medium">{m.name}</td>
+                              <td className="p-3"><span className="text-xs px-2 py-0.5 bg-slate-100 rounded">{formattedCategory}</span></td>
+                              <td className="p-3 text-sm text-slate-500">{m.phone}</td>
+                              <td className="p-3">{renderStatusBadge(memberSt, true)}</td>
+                              <td className="p-3"><div className="w-10 h-10 bg-white p-1 border rounded"><QRCodeSVG value={m.qr_code} size={80} style={{ width: '100%', height: '100%' }} /></div></td>
+                              <td className="p-3 text-right space-x-1">
+                                {memberSt.toLowerCase() === 'confirmado' && (
+                                  <button onClick={() => sendWhatsApp(m, null, true)} className="p-1.5 bg-purple-600 text-white rounded"><QrCode size={16}/></button>
+                                )}
+                                <button onClick={() => startEditing(m)} className="p-1.5 text-blue-400"><Edit3 size={16}/></button>
+                                <button onClick={() => deleteGuest(m.id)} className="p-1.5 text-red-400"><Trash2 size={16}/></button>
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </Fragment>
                     );
                   })}
