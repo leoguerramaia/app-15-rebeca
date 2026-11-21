@@ -115,7 +115,7 @@ export default function UsersManagementPage() {
               <ArrowLeft size={20} />
             </button>
             <div>
-              <h1 className="text-2xl font-bold text-slate-800">Gestão de Utilizadores do Sistema</h1>
+              <h1 className="text-3xl font-semibold text-slate-800">Gestão de Utilizadores do Sistema</h1>
               <p className="text-xs text-slate-500">Aprove novos registos, edite acessos e envie credenciais</p>
             </div>
           </div>
