@@ -106,7 +106,7 @@ export default function UsersManagementPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f4ec] p-3 sm:p-6 font-sans">
+    <div className="min-h-screen bg-[#F4EFE6] p-3 sm:p-6 font-sans">
       <div className="max-w-5xl mx-auto space-y-6">
         
         <div className="flex justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
