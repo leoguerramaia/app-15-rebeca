@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { QRCodeSVG } from 'qrcode.react';
 import * as XLSX from 'xlsx';
-import { Trash2, CheckCircle, Clock, Send, Users, User, ChevronDown, ChevronUp, XCircle, Edit3, QrCode, LogOut, Shield, Filter, Printer, Sparkles, Check, AlertTriangle, UserCheck, UserX, Award, Bookmark, FileSpreadsheet, Eye } from 'lucide-react';
+import { Trash2, CheckCircle, Clock, Send, Users, User, ChevronDown, ChevronUp, XCircle, Edit3, QrCode, LogOut, Shield, Filter, Printer, Sparkles, Flower2, Check, AlertTriangle, UserCheck, UserX, Award, Bookmark, FileSpreadsheet, Eye } from 'lucide-react';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -483,9 +483,9 @@ export default function Dashboard() {
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-1">
-              <Sparkles size={14} className="text-amber-600" /> Baile Real • Gestão Oficial
+              <Sparkles size={14} className="text-amber-600" /><span className="fairytale-mark"><Flower2 size={14} /></span> Baile Real • Gestão Oficial
             </span>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Painel de Gestão - Aniversário 15 Anos</h1>
+            <h1 className="text-2xl sm:text-3xl font-semibold text-slate-800">Painel de Gestão - Aniversário 15 Anos</h1>
             {currentUser && <p className="text-xs text-slate-500 mt-1">Logado como: <strong className="text-slate-800">{currentUser.name}</strong> (<span className="text-amber-600 uppercase font-bold">{currentUser.role}</span>)</p>}
           </div>
           <div className="flex gap-2 flex-wrap">
