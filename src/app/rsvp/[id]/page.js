@@ -94,7 +94,7 @@ function RsvpContent() {
       <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="text-center space-y-3">
           <div className="w-8 h-8 border-4 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-slate-600 font-medium">A carregar o seu convite especial...</p>
+          <p className="text-slate-600 font-medium">A Carregar O Seu Convite Especial...</p>
         </div>
       </div>
     );
@@ -104,7 +104,7 @@ function RsvpContent() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center max-w-md w-full space-y-3">
-          <h1 className="text-2xl font-bold text-slate-800">Convite não encontrado</h1>
+          <h1 className="text-2xl font-bold text-slate-800">Convite Não Encontrado</h1>
           <p className="text-slate-600">Verifique o link recebido ou entre em contacto com os organizadores.</p>
         </div>
       </div>
@@ -134,17 +134,17 @@ function RsvpContent() {
         <div className="bg-amber-50/50 p-4 rounded-2xl border border-amber-100 flex flex-col gap-2 text-left text-sm text-slate-700">
           <div className="flex items-center gap-3">
             <Calendar className="text-amber-600 flex-shrink-0" size={18} />
-            <span>Confirme sua presença com antecedência.</span>
+            <span>Confirme Sua Presença Com Antecedência.</span>
           </div>
           <div className="flex items-center gap-3">
             <MapPin className="text-amber-600 flex-shrink-0" size={18} />
-            <span>Local exclusivo em Teresina - PI</span>
+            <span>Local Exclusivo Em Teresina - PI</span>
           </div>
         </div>
 
         {!responded || (!isConfirmed && !isRefused) ? (
           <div className="space-y-4 pt-2">
-            <p className="text-sm font-semibold text-slate-700">Você poderá comparecer ao evento?</p>
+            <p className="text-sm font-semibold text-slate-700">Você Poderá Comparecer Ao Evento?</p>
             <div className="flex gap-4">
               <button
                 onClick={() => handleResponse('confirmado')}
@@ -176,7 +176,7 @@ function RsvpContent() {
               <img src={qrImageUrl} alt="QR Code de Acesso" className="w-full h-auto rounded-lg" />
               <div className="text-[11px] text-slate-500 font-semibold leading-tight">
                 <p className="text-slate-800 font-bold">{guest.name}</p>
-                <p className="text-amber-600 mt-0.5">Pessoal e Intransferível</p>
+                <p className="text-amber-600 mt-0.5">Pessoal E Intransferível</p>
               </div>
             </div>
 
@@ -216,7 +216,7 @@ export default function RsvpPage() {
       <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="text-center space-y-3">
           <div className="w-8 h-8 border-4 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-slate-600 font-medium">A carregar...</p>
+          <p className="text-slate-600 font-medium">A Carregar...</p>
         </div>
       </div>
     }>
