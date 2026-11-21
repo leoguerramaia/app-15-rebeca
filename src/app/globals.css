@@ -284,3 +284,17 @@ body:has(.max-w-7xl) { background:#0B1D3A!important; }
   .guest-table .guest-member-row td:first-child::before { content:"Convidado"; }
   .guest-table tbody td[colspan] { grid-column:1/-1; }
 }
+
+@media (max-width:700px) {
+  .guest-table tbody tr {
+    background:#0B1D3A!important;
+    border-color:#2A4B7C!important;
+    box-shadow:0 8px 22px rgb(0 0 0 / 18%)!important;
+  }
+  .guest-table tbody td,
+  .guest-table tbody td span { color:#F1F3F6!important; }
+  .guest-table tbody td::before { color:#C2A24A!important; }
+  .guest-table tbody tr:hover { background:#14294A!important; }
+  .guest-table tbody tr td:nth-child(8),
+  .guest-table .guest-family-summary td:nth-child(5) { border-top-color:#2A4B7C!important; }
+}
