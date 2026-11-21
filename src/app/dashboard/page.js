@@ -573,7 +573,7 @@ export default function Dashboard() {
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border flex items-center gap-1.5 ${isActive ? 'bg-amber-600 text-white border-amber-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-amber-50'}`}
                 >
                   {isActive && <Check size={12} />}
-                  {filterName}
+                  {formatTitleCase(filterName)}
                 </button>
               );
             })}
