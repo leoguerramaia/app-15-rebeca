@@ -186,7 +186,7 @@ export default function HomePage() {
                   <Phone size={24} className="text-emerald-200" />
                 </div>
                 <div className="text-left">
-                  <p className="text-xl font-semibold font-serif">Área do Convidado</p>
+                  <p className="text-xl font-semibold font-serif">Área Do Convidado</p>
                   <p className="text-xs font-normal text-emerald-100/90 mt-0.5">Acesse as confirmações e os Qrcodes de acesso a festa</p>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function HomePage() {
             {/* SELEÇÃO DE PERFIL */}
             {authMode !== 'forgot' && (
               <div className="space-y-1">
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Selecione o Perfil</label>
+                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Selecione O Perfil</label>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
@@ -248,13 +248,13 @@ export default function HomePage() {
                   <input type="text" placeholder="Digite o seu utilizador" value={username} onChange={(e) => setUsername(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" required />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Palavra-passe</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Palavra-Passe</label>
                   <input type="password" placeholder="Digite a sua senha" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" required />
                 </div>
                 <div className="text-right">
-                  <button type="button" onClick={() => setAuthMode('forgot')} className="text-xs text-amber-700 hover:underline font-semibold">Esqueceu a senha?</button>
+                  <button type="button" onClick={() => setAuthMode('forgot')} className="text-xs text-amber-700 hover:underline font-semibold">Esqueceu A Senha?</button>
                 </div>
-                <button type="submit" className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 rounded-xl text-sm transition-all shadow-sm">Entrar no Baile</button>
+                <button type="submit" className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 rounded-xl text-sm transition-all shadow-sm">Entrar No Baile</button>
               </form>
             )}
 
@@ -286,7 +286,7 @@ export default function HomePage() {
               <form onSubmit={handleForgotPassword} className="space-y-3">
                 <div className="flex justify-between items-center mb-1">
                   <h3 className="text-sm font-bold text-slate-800 flex items-center gap-1.5"><KeyRound size={16} className="text-amber-600" /> Recuperar Senha</h3>
-                  <button type="button" onClick={() => setAuthMode('login')} className="text-xs text-amber-700 underline font-semibold">Voltar ao Login</button>
+                  <button type="button" onClick={() => setAuthMode('login')} className="text-xs text-amber-700 underline font-semibold">Voltar Ao Login</button>
                 </div>
                 <p className="text-xs text-slate-500">Insira o seu número de telemóvel cadastrado para recuperar a sua senha:</p>
                 <input type="tel" placeholder="Ex: 86999999999" value={forgotPhone} onChange={(e) => setForgotPhone(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" required />
@@ -313,13 +313,13 @@ export default function HomePage() {
               <form onSubmit={handleRequestOtp} className="space-y-4">
                 <p className="text-xs text-slate-600">Insira o seu número de telemóvel para verificar o convite e receber o código automático no WhatsApp:</p>
                 <input type="tel" placeholder="Ex: 86999999999" value={phoneInput} onChange={(e) => setPhoneInput(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500" required />
-                <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-3 rounded-xl text-sm shadow-sm">Verificar e Enviar Código</button>
+                <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-3 rounded-xl text-sm shadow-sm">Verificar E Enviar Código</button>
               </form>
             )}
 
             {step === 2 && (
               <form onSubmit={handleVerifyOtp} className="space-y-4">
-                <p className="text-xs text-slate-600">Insira o código enviado para o seu WhatsApp (Dica: use <b>1234</b> se preferir):</p>
+                <p className="text-xs text-slate-600">Insira o código enviado para o seu WhatsApp (Dica: use <b>1234</b> Se Preferir):</p>
                 <input type="text" placeholder="1234" value={otpCode} onChange={(e) => setOtpCode(e.target.value)} className="w-full border border-slate-200 rounded-xl p-3 text-center text-lg font-bold tracking-widest focus:outline-none focus:ring-2 focus:ring-emerald-500" required />
                 <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-2.5 rounded-xl text-sm shadow-sm">Confirmar Código</button>
               </form>
@@ -327,7 +327,7 @@ export default function HomePage() {
 
             {step === 3 && (
               <div className="space-y-4">
-                <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl text-amber-900 text-xs font-medium">🌹 Convites encontrados para o Baile:</div>
+                <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl text-amber-900 text-xs font-medium">🌹 Convites Encontrados Para O Baile:</div>
                 <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
                   {guestGuestsList.map((g) => {
                     const qrCardText = `EVENTO: Baile 15 Anos Rebeca Guerra Maia (Bela e a Fera)\nCONVIDADO: ${g.name}\nSTATUS: Pessoal e Intransferível`;
@@ -338,7 +338,7 @@ export default function HomePage() {
                         <div className="text-xs space-y-1">
                           <p className="font-bold text-slate-800 text-sm font-serif">{g.name}</p>
                           <p className="text-slate-600">Categoria: {g.category === 'crianca' ? 'Criança (<10)' : 'Adulto'}</p>
-                          <p className="text-rose-700 font-semibold">Pessoal e Intransferível</p>
+                          <p className="text-rose-700 font-semibold">Pessoal E Intransferível</p>
                         </div>
                       </div>
                     );
