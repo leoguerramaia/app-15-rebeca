@@ -812,7 +812,7 @@ export default function Dashboard() {
         {/* Tabela de Convidados */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="w-full overflow-x-hidden">
-            <table className="w-full text-left border-collapse table-auto">
+            <table className="guest-table w-full text-left border-collapse table-auto">
               <thead className="bg-slate-50 border-b text-slate-600 text-[11px]">
                 <tr>
                   <th className="p-2.5 font-medium">Convidado / Família</th>
@@ -841,7 +841,7 @@ export default function Dashboard() {
                       const tipoConvite = members[0]?.categoria_convite || 'REGULARES';
                       return (
                         <Fragment key={groupKey}>
-                          <tr className="bg-amber-50/30 border-t-2 border-amber-100">
+                          <tr className="guest-family-summary bg-amber-50/30 border-t-2 border-amber-100">
                             <td className="p-2.5 font-bold text-slate-800" colSpan="2">
                               <div className="flex items-center gap-1.5 flex-wrap">
                                 <button onClick={() => toggleExpandFamily(groupKey)} className="text-amber-600 bg-white p-1 rounded-md border">{isExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}</button>
@@ -863,7 +863,7 @@ export default function Dashboard() {
                             const memberSt = m.attendance_status || (m.confirmed ? 'confirmado' : 'pendente');
                             const formattedCategory = (m.category || '').toLowerCase() === 'crianca' ? 'Criança' : 'Adulto';
                             return (
-                              <tr key={m.id} className="bg-white border-l-4 border-l-amber-400">
+                              <tr key={m.id} className="guest-member-row bg-white border-l-4 border-l-amber-400">
                                 <td className="p-2.5 pl-6 text-slate-700 font-medium truncate" colSpan="2">{m.name}</td>
                                 <td className="p-2.5"><span className="text-[10px] px-1.5 py-0.5 bg-slate-100 rounded">{formattedCategory}</span></td>
                                 <td className="p-2.5 text-[11px] text-slate-500 truncate">{m.phone}</td>
