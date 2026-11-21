@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { Html5QrcodeScanner } from 'html5-qrcode';
-import { CheckCircle2, AlertTriangle, XCircle, ShieldCheck, RotateCcw, LogOut } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, XCircle, ShieldCheck, Flower2, RotateCcw, LogOut } from 'lucide-react';
 
 export default function PortariaPage() {
   const router = useRouter();
@@ -123,9 +123,9 @@ export default function PortariaPage() {
 
         <div className="text-center space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/20 text-amber-700 text-xs font-bold uppercase tracking-wider">
-            <ShieldCheck size={16} /> Controlo de Portaria
+            <ShieldCheck size={16} /><span className="fairytale-mark"><Flower2 size={14} /></span> Controlo de Portaria
           </div>
-          <h1 className="text-2xl font-bold">Aniversário 15 Anos Rebeca Guerra</h1>
+          <h1 className="text-3xl sm:text-4xl font-semibold">Aniversário 15 Anos Rebeca Guerra</h1>
         </div>
 
         <div className="bg-white p-4 rounded-2xl border border-amber-200 shadow-xl overflow-hidden">
