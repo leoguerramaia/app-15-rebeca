@@ -9,7 +9,7 @@
   --wine: #6B1D2B;
   --ink: #0B1D3A;
   --font-copy: var(--font-body), "Montserrat", Arial, sans-serif;
-  --font-display: var(--font-display), "Cormorant Garamond", Georgia, serif;
+  --font-heading: var(--font-display), "Cormorant Garamond", Georgia, serif;
   --radius-card: 20px;
   --shadow-card: 0 14px 36px rgb(11 29 58 / 8%);
 }
@@ -18,7 +18,7 @@
   --color-background: var(--ivory);
   --color-foreground: var(--ink);
   --font-sans: var(--font-body);
-  --font-serif: var(--font-display);
+  --font-serif: var(--font-heading);
 }
 
 * { box-sizing: border-box; }
@@ -32,7 +32,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-h1, h2 { font-family: var(--font-display); font-weight: 500; letter-spacing: -.025em; line-height: 1.08; }
+h1, h2 { font-family: var(--font-heading); font-weight: 500; letter-spacing: -.025em; line-height: 1.08; }
 button, input, select, textarea { font: inherit; }
 button { cursor:pointer; min-height:44px; border-radius:12px; font-weight:600; transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease; }
 button:hover { transform: translateY(-1px); }
