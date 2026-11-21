@@ -107,7 +107,7 @@ export default function PortariaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f4ec] text-slate-800 p-3 sm:p-6 font-sans flex flex-col items-center">
+    <div className="min-h-screen bg-[#F4EFE6] text-slate-800 p-3 sm:p-6 font-sans flex flex-col items-center">
       <div className="max-w-xl w-full space-y-6">
         
         {/* CABEÇALHO COM LOGOFF E SESSÃO */}
