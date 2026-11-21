@@ -319,7 +319,7 @@ export default function Dashboard() {
   const formatTitleCase = (value) => (value || '')
     .toString()
     .toLocaleLowerCase('pt-BR')
-    .replace(/(^|[\\s\\-/])([\\p{L}])/gu, (_, separator, letter) => separator + letter.toLocaleUpperCase('pt-BR'));
+    .replace(/(^|[\s-])([\p{L}])/gu, (_, separator, letter) => separator + letter.toLocaleUpperCase('pt-BR'));
 
   const toggleFilter = (filterName) => {
     if (normalizeFilterValue(filterName) === 'TODOS') {
