@@ -173,3 +173,43 @@ body:has(.max-w-7xl) { background:#0B1D3A!important; }
   .max-w-7xl > .grid { grid-template-columns:repeat(2,minmax(0,1fr))!important; }
   .max-w-7xl tbody td { padding:10px 8px!important; }
 }
+
+/* Cores semânticas dos indicadores */
+.dashboard-metric-grid > .dashboard-metric:nth-child(1) { border-left-color:#2A4B7C!important; }
+.dashboard-metric-grid > .dashboard-metric:nth-child(2),
+.dashboard-metric-grid > .dashboard-metric:nth-child(3) { border-left-color:#2A4B7C!important; }
+.dashboard-metric-grid > .dashboard-metric:nth-child(4),
+.dashboard-metric-grid > .dashboard-metric:nth-child(9) {
+  border-left-color:#6B1D2B!important;
+  background:#FBF0EF!important;
+}
+.dashboard-metric-grid > .dashboard-metric:nth-child(4) > div:first-child,
+.dashboard-metric-grid > .dashboard-metric:nth-child(9) > div:first-child {
+  background:#F3DFDC!important;color:#6B1D2B!important;
+}
+.dashboard-metric-grid > .dashboard-metric:nth-child(4) p,
+.dashboard-metric-grid > .dashboard-metric:nth-child(9) p { color:#6B1D2B!important; }
+.dashboard-metric-grid > .dashboard-metric:nth-child(5),
+.dashboard-metric-grid > .dashboard-metric:nth-child(6) {
+  border-left-color:#198754!important;
+  background:#EFF8F1!important;
+}
+.dashboard-metric-grid > .dashboard-metric:nth-child(5) > div:first-child,
+.dashboard-metric-grid > .dashboard-metric:nth-child(6) > div:first-child {
+  background:#DCEFE1!important;color:#198754!important;
+}
+.dashboard-metric-grid > .dashboard-metric:nth-child(5) p,
+.dashboard-metric-grid > .dashboard-metric:nth-child(6) p { color:#198754!important; }
+.dashboard-metric-grid > .dashboard-metric:nth-child(7),
+.dashboard-metric-grid > .dashboard-metric:nth-child(8) {
+  border-left-color:#D39E00!important;
+  background:#FFF8E3!important;
+}
+.dashboard-metric-grid > .dashboard-metric:nth-child(7) > div:first-child,
+.dashboard-metric-grid > .dashboard-metric:nth-child(8) > div:first-child {
+  background:#F9EAB8!important;color:#946200!important;
+}
+.dashboard-metric-grid > .dashboard-metric:nth-child(7) p,
+.dashboard-metric-grid > .dashboard-metric:nth-child(8) p { color:#946200!important; }
+.dashboard-metric-grid > .dashboard-metric:nth-child(10) { border-left-color:#2A4B7C!important; }
+.dashboard-metric-grid > .dashboard-metric:nth-child(11) { border-left-color:#C2A24A!important; }
