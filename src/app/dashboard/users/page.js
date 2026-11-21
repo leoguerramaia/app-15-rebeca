@@ -115,7 +115,7 @@ export default function UsersManagementPage() {
               <ArrowLeft size={20} />
             </button>
             <div>
-              <h1 className="text-3xl font-semibold text-slate-800">Gestão de Utilizadores do Sistema</h1>
+              <h1 className="text-3xl font-semibold text-slate-800">Gestão De Utilizadores Do Sistema</h1>
               <p className="text-xs text-slate-500">Aprove novos registos, edite acessos e envie credenciais</p>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function UsersManagementPage() {
             </thead>
             <tbody className="divide-y divide-slate-100 text-sm">
               {loading ? (
-                <tr><td colSpan="5" className="p-8 text-center text-slate-500">A carregar utilizadores...</td></tr>
+                <tr><td colSpan="5" className="p-8 text-center text-slate-500">A Carregar Utilizadores...</td></tr>
               ) : users.map(u => (
                 <tr key={u.id} className="hover:bg-slate-50 transition-colors">
                   <td className="p-4 font-medium text-slate-800">{u.name}</td>
