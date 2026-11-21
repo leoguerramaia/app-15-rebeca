@@ -142,7 +142,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-[#fffdf7] to-amber-100/70 flex flex-col font-serif relative">
+    <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-[#2A4B7C]/10 flex flex-col font-serif relative">
       
       {/* BOTÃO DE LOGIN NO CANTO SUPERIOR DIREITO */}
       <header className="absolute top-6 right-6 z-20 font-sans">
