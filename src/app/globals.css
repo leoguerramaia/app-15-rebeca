@@ -2,13 +2,13 @@
 
 :root {
   color-scheme: light;
-  --background: #f7f4ec;
-  --foreground: #1d3029;
-  --forest: #183b32;
-  --gold: #b28b43;
-  --rose: #9b5360;
-  --surface: #fffefa;
-  --line: #e8e0cf;
+  --background: #F4EFE6;
+  --foreground: #0B1D3A;
+  --forest: #0B1D3A;
+  --gold: #C2A24A;
+  --rose: #6B1D2B;
+  --surface: #F4EFE6;
+  --line: color-mix(in srgb, #0B1D3A 16%, #F4EFE6);
 }
 
 @theme inline {
@@ -91,7 +91,7 @@ table {
 
 ::selection {
   background: #ead9ad;
-  color: #183b32;
+  color: #0B1D3A;
 }
 
 @media (max-width: 640px) {
@@ -122,4 +122,63 @@ table {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+
+/* Paleta Bela e a Fera: marinho, azul, dourado, creme e bordô */
+:root {
+  --color-navy: #0B1D3A;
+  --color-blue: #2A4B7C;
+  --color-gold: #C2A24A;
+  --color-cream: #F4EFE6;
+  --color-burgundy: #6B1D2B;
+}
+
+/* Harmoniza as utilidades já usadas nas telas com a paleta do evento. */
+[class~="bg-white"], [class~="bg-white/90"],
+[class~="bg-slate-50"], [class~="bg-slate-100"], [class~="bg-gray-50"] {
+  background-color: #F4EFE6 !important;
+}
+[class~="bg-slate-900"], [class~="bg-slate-800"] {
+  background-color: #0B1D3A !important;
+}
+[class~="bg-slate-700"], [class~="bg-slate-600"],
+[class~="bg-blue-900"], [class~="bg-blue-800"],
+[class~="bg-emerald-800"], [class~="bg-emerald-700"] {
+  background-color: #2A4B7C !important;
+}
+[class~="bg-amber-600"], [class~="bg-amber-700"],
+[class~="bg-amber-500"] {
+  background-color: #C2A24A !important;
+}
+[class~="hover:bg-amber-700"]:hover, [class~="hover:bg-amber-600"]:hover {
+  background-color: #B08F3F !important;
+}
+[class~="bg-pink-500/20"], [class~="bg-red-50"], [class~="bg-red-100"] {
+  background-color: color-mix(in srgb, #6B1D2B 10%, #F4EFE6) !important;
+}
+[class~="bg-green-50"], [class~="bg-green-100"],
+[class~="bg-emerald-50"], [class~="bg-emerald-100"] {
+  background-color: color-mix(in srgb, #2A4B7C 10%, #F4EFE6) !important;
+}
+[class~="text-slate-900"], [class~="text-slate-800"], [class~="text-slate-700"],
+[class~="text-gray-900"], [class~="text-gray-800"] {
+  color: #0B1D3A !important;
+}
+[class~="text-amber-600"], [class~="text-amber-700"], [class~="text-yellow-700"] {
+  color: #8A6A1F !important;
+}
+[class~="text-blue-700"], [class~="text-emerald-700"], [class~="text-green-700"] {
+  color: #2A4B7C !important;
+}
+[class~="text-red-700"], [class~="text-rose-700"] {
+  color: #6B1D2B !important;
+}
+[class~="border-slate-100"], [class~="border-slate-200"],
+[class~="border-gray-100"], [class~="border-amber-100"],
+[class~="border-amber-200"] {
+  border-color: color-mix(in srgb, #C2A24A 35%, #F4EFE6) !important;
+}
+[class~="border-slate-700"], [class~="border-blue-900"] {
+  border-color: #2A4B7C !important;
 }
