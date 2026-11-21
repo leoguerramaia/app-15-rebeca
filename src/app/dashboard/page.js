@@ -476,7 +476,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f4ec] p-3 sm:p-6 font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#F4EFE6] p-3 sm:p-6 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto space-y-6">
         
         {/* CABEÇALHO */}
