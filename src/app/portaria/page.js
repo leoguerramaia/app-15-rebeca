@@ -113,7 +113,7 @@ export default function PortariaPage() {
         {/* CABEÇALHO COM LOGOFF E SESSÃO */}
         <div className="bg-white p-4 rounded-2xl border border-amber-200 flex justify-between items-center">
           <div>
-            <h2 className="text-sm font-bold text-slate-200">Portaria do Evento</h2>
+            <h2 className="text-sm font-bold text-slate-200">Portaria Do Evento</h2>
             {currentUser && <p className="text-xs text-slate-400">Operador: <strong className="text-white">{currentUser.name}</strong></p>}
           </div>
           <button onClick={handleLogout} className="bg-red-500/20 hover:bg-red-500/30 text-red-300 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all">
@@ -134,7 +134,7 @@ export default function PortariaPage() {
 
         {loading && (
           <div className="bg-white p-6 rounded-2xl border border-amber-200 text-center animate-pulse">
-            <p className="text-amber-700 font-medium">A validar QR Code...</p>
+            <p className="text-amber-700 font-medium">A Validar QR Code...</p>
           </div>
         )}
 
