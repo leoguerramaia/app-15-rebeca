@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { Phone, ArrowRight, Sparkles, Lock, Crown, LogIn, UserPlus, KeyRound, ShieldCheck, UserCheck } from 'lucide-react';
+import { Phone, ArrowRight, Sparkles, Lock, Crown, Flower2, LogIn, UserPlus, KeyRound, ShieldCheck, UserCheck } from 'lucide-react';
 
 export default function HomePage() {
   const router = useRouter();
@@ -160,9 +160,9 @@ export default function HomePage() {
           
           <div className="space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-wider uppercase border border-amber-300 shadow-sm font-sans">
-              <Crown size={14} className="text-amber-600" /> Baile Real • Bela e a Fera
+              <Crown size={14} className="text-amber-600" /><span className="fairytale-mark"><Flower2 size={15} /></span> Baile Real • Bela e a Fera
             </span>
-            <h1 className="text-3xl font-extrabold text-slate-900 font-serif leading-snug">
+            <h1 className="text-4xl sm:text-5xl font-semibold text-slate-900 font-serif leading-tight">
               Aniversário 15 Anos<br />Rebeca Guerra Maia
             </h1>
           </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
                   <Phone size={24} className="text-emerald-200" />
                 </div>
                 <div className="text-left">
-                  <p className="text-lg font-serif">Área do Convidado</p>
+                  <p className="text-xl font-semibold font-serif">Área do Convidado</p>
                   <p className="text-xs font-normal text-emerald-100/90 mt-0.5">Acesse as confirmações e os Qrcodes de acesso a festa</p>
                 </div>
               </div>
