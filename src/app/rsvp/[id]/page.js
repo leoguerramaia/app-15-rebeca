@@ -3,7 +3,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { CheckCircle2, XCircle, Calendar, MapPin, Sparkles } from 'lucide-react';
+import { CheckCircle2, XCircle, Calendar, MapPin, Flower2, Sparkles } from 'lucide-react';
 
 function RsvpContent() {
   const params = useParams();
@@ -125,9 +125,9 @@ function RsvpContent() {
 
         <div className="space-y-2 pt-2">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold tracking-wider uppercase">
-            <Sparkles size={14} /> Convite Especial
+            <Sparkles size={14} /><span className="fairytale-mark"><Flower2 size={14} /></span> Convite Especial
           </span>
-          <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">Aniversário 15 Anos Rebeca Guerra</h1>
+          <h1 className="text-4xl sm:text-5xl font-semibold text-slate-800 tracking-tight">Aniversário 15 Anos Rebeca Guerra</h1>
           <p className="text-slate-600 text-sm">Olá, <strong className="text-amber-600">{guest.name}</strong>! É uma alegria imensa contar com a sua presença.</p>
         </div>
 
