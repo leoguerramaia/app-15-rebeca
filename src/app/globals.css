@@ -10,7 +10,7 @@
   --ink: #0B1D3A;
   --font-copy: var(--font-body), "Montserrat", Arial, sans-serif;
   --font-heading: var(--font-display), "Cormorant Garamond", Georgia, serif;
-  --radius-card: 20px;
+  --radius-card: 24px;
   --shadow-card: 0 14px 36px rgb(11 29 58 / 8%);
 }
 
@@ -22,23 +22,23 @@
 }
 
 * { box-sizing: border-box; }
-html { min-height: 100%; background: var(--ivory); }
+html { min-height: 100%; background: var(--navy); }
 body {
   min-height: 100vh;
   margin: 0;
   color: var(--ink);
-  background: var(--ivory);
+  background: var(--navy);
   font-family: var(--font-copy);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-h1, h2 { font-family: var(--font-heading); font-weight: 500; letter-spacing: -.025em; line-height: 1.08; }
+h1, h2, .font-serif { font-family: var(--font-heading)!important; font-weight: 500; letter-spacing: -.025em; line-height: 1.08; }
 button, input, select, textarea { font: inherit; }
-button { cursor:pointer; min-height:44px; border-radius:12px; font-weight:600; transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease; }
+button { cursor:pointer; min-height:44px; border-radius:16px; font-weight:600; transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease; }
 button:hover { transform: translateY(-1px); }
 button:active { transform: translateY(0); }
 button:focus-visible, a:focus-visible { outline:3px solid var(--gold); outline-offset:3px; }
-input,select,textarea { min-height:46px; border:1px solid rgb(11 29 58 / 18%); border-radius:10px; background:#fff; color:var(--ink); }
+input,select,textarea { min-height:46px; border:1px solid rgb(11 29 58 / 18%); border-radius:14px; background:#fff; color:var(--ink); }
 input:focus,select:focus,textarea:focus { outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgb(194 162 74 / 20%); }
 
 /* Landing hero: fotografia com espaço negativo para o convite */
