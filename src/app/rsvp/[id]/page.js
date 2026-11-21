@@ -91,7 +91,7 @@ function RsvpContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-[#fffdf7] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
+      <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="text-center space-y-3">
           <div className="w-8 h-8 border-4 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-slate-600 font-medium">A carregar o seu convite especial...</p>
@@ -102,7 +102,7 @@ function RsvpContent() {
 
   if (!guest) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-[#fffdf7] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
+      <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center max-w-md w-full space-y-3">
           <h1 className="text-2xl font-bold text-slate-800">Convite não encontrado</h1>
           <p className="text-slate-600">Verifique o link recebido ou entre em contacto com os organizadores.</p>
@@ -118,7 +118,7 @@ function RsvpContent() {
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrCardText)}`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-[#fffdf7] to-emerald-50 flex items-center justify-center p-3 sm:p-6 font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6 font-sans">
       <div className="bg-white max-w-lg w-full p-8 rounded-3xl shadow-xl border border-amber-100 text-center space-y-6 relative overflow-hidden">
         
         <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-400 via-amber-400 to-amber-500"></div>
@@ -213,7 +213,7 @@ function RsvpContent() {
 export default function RsvpPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-[#fffdf7] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
+      <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="text-center space-y-3">
           <div className="w-8 h-8 border-4 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-slate-600 font-medium">A carregar...</p>
