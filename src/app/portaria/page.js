@@ -107,11 +107,11 @@ export default function PortariaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 p-6 font-sans flex flex-col items-center">
+    <div className="min-h-screen bg-[#f7f4ec] text-slate-800 p-3 sm:p-6 font-sans flex flex-col items-center">
       <div className="max-w-xl w-full space-y-6">
         
         {/* CABEÇALHO COM LOGOFF E SESSÃO */}
-        <div className="bg-slate-800 p-4 rounded-2xl border border-slate-700 flex justify-between items-center">
+        <div className="bg-white p-4 rounded-2xl border border-amber-200 flex justify-between items-center">
           <div>
             <h2 className="text-sm font-bold text-slate-200">Portaria do Evento</h2>
             {currentUser && <p className="text-xs text-slate-400">Operador: <strong className="text-white">{currentUser.name}</strong></p>}
@@ -122,19 +122,19 @@ export default function PortariaPage() {
         </div>
 
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/20 text-amber-700 text-xs font-bold uppercase tracking-wider">
             <ShieldCheck size={16} /> Controlo de Portaria
           </div>
           <h1 className="text-2xl font-bold">Aniversário 15 Anos Rebeca Guerra</h1>
         </div>
 
-        <div className="bg-slate-800 p-4 rounded-2xl border border-slate-700 shadow-xl overflow-hidden">
+        <div className="bg-white p-4 rounded-2xl border border-amber-200 shadow-xl overflow-hidden">
           <div id="reader" className="w-full rounded-xl overflow-hidden"></div>
         </div>
 
         {loading && (
-          <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center animate-pulse">
-            <p className="text-pink-400 font-medium">A validar QR Code...</p>
+          <div className="bg-white p-6 rounded-2xl border border-amber-200 text-center animate-pulse">
+            <p className="text-amber-700 font-medium">A validar QR Code...</p>
           </div>
         )}
 
@@ -161,7 +161,7 @@ export default function PortariaPage() {
               </div>
             </div>
 
-            <button onClick={resetScanner} className="w-full bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs">
+            <button onClick={resetScanner} className="w-full bg-emerald-800 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-xs">
               <RotateCcw size={14} /> Ler Próximo QR Code
             </button>
           </div>
