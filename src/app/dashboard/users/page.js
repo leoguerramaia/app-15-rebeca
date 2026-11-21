@@ -106,7 +106,7 @@ export default function UsersManagementPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 p-8 font-sans">
+    <div className="min-h-screen bg-[#f7f4ec] p-3 sm:p-6 font-sans">
       <div className="max-w-5xl mx-auto space-y-6">
         
         <div className="flex justify-between items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
@@ -122,7 +122,7 @@ export default function UsersManagementPage() {
           {currentUser && (
             <div className="text-right text-xs">
               <p className="font-semibold text-slate-800">{currentUser.name}</p>
-              <span className="text-pink-600 uppercase font-bold">{currentUser.role}</span>
+              <span className="text-amber-600 uppercase font-bold">{currentUser.role}</span>
             </div>
           )}
         </div>
@@ -147,7 +147,7 @@ export default function UsersManagementPage() {
                   <td className="p-4 font-medium text-slate-800">{u.name}</td>
                   <td className="p-4 text-slate-600">{u.phone}</td>
                   <td className="p-4">
-                    <span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${u.role === 'admin' ? 'bg-pink-100 text-pink-700' : 'bg-purple-100 text-purple-700'}`}>
+                    <span className={`px-2.5 py-1 rounded-md text-xs font-semibold ${u.role === 'admin' ? 'bg-amber-100 text-amber-700' : 'bg-purple-100 text-purple-700'}`}>
                       {u.role.toUpperCase()}
                     </span>
                   </td>
@@ -195,7 +195,7 @@ export default function UsersManagementPage() {
                   </select>
                 </div>
                 <div className="flex gap-2 pt-2">
-                  <button type="submit" className="flex-1 bg-pink-600 hover:bg-pink-700 text-white font-medium py-2.5 rounded-xl text-xs">Salvar</button>
+                  <button type="submit" className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-medium py-2.5 rounded-xl text-xs">Salvar</button>
                   <button type="button" onClick={() => setEditingUser(null)} className="flex-1 bg-slate-100 text-slate-700 font-medium py-2.5 rounded-xl text-xs">Cancelar</button>
                 </div>
               </form>
