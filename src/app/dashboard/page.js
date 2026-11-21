@@ -683,7 +683,7 @@ export default function Dashboard() {
                     <label className="block text-xs font-semibold text-slate-600 mb-1">Categoria</label>
                     <select value={editCategory} onChange={(e) => setEditCategory(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm bg-white">
                       <option value="adulto">Adulto</option>
-                      <option value="crianca">Criança (&lt;10 anos)</option>
+                      <option value="crianca">Criança (&lt;9 anos)</option>
                     </select>
                   </div>
                   <div>
@@ -759,7 +759,7 @@ export default function Dashboard() {
                 <input type="tel" placeholder="WhatsApp" value={phone} onChange={(e) => setPhone(e.target.value)} className="border rounded-lg p-3 text-sm" required />
                 <select value={category} onChange={(e) => setCategory(e.target.value)} className="border rounded-lg p-3 text-sm bg-white">
                   <option value="adulto">Adulto</option>
-                  <option value="crianca">Criança (&lt;10 anos)</option>
+                  <option value="crianca">Criança (&lt;9 anos)</option>
                 </select>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -798,7 +798,7 @@ export default function Dashboard() {
                       <input type="text" placeholder={`Nome do Membro ${i + 1}`} value={m.name} onChange={(e) => handleMemberChange(i, 'name', e.target.value)} className="flex-1 border bg-white rounded-lg p-2.5 text-sm" required />
                       <select value={m.category} onChange={(e) => handleMemberChange(i, 'category', e.target.value)} className="w-40 border bg-white rounded-lg p-2.5 text-sm">
                         <option value="adulto">Adulto</option>
-                        <option value="crianca">Criança (&lt;10 anos)</option>
+                        <option value="crianca">Criança (&lt;9 anos)</option>
                       </select>
                     </div>
                   ))}
