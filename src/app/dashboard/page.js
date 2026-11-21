@@ -497,55 +497,55 @@ export default function Dashboard() {
         </div>
         
         {/* Painel Totalizador em Exatamente 6 Colunas */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
-          <div className="bg-slate-50 border border-slate-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+        <div className="dashboard-metric-grid">
+          <div className="dashboard-metric bg-slate-50 border border-slate-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-slate-200 text-slate-700 rounded-lg shrink-0"><Shield size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-slate-500 uppercase truncate">Máximo</p><p className="text-base font-extrabold text-slate-800">{MAX_CONVIDADOS_ADULTOS}</p></div>
           </div>
-          <div className="bg-amber-50 border border-amber-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-amber-50 border border-amber-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-amber-200 text-amber-700 rounded-lg shrink-0"><Send size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-amber-600 uppercase truncate">Enviados</p><p className="text-base font-extrabold text-amber-700">{convitesEnviados}</p></div>
           </div>
-          <div className="bg-blue-50 border border-blue-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-blue-50 border border-blue-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-blue-200 text-blue-700 rounded-lg shrink-0"><Users size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-blue-600 uppercase truncate">Disponíveis</p><p className={`text-base font-extrabold ${convitesDisponiveis < 0 ? 'text-red-600' : 'text-blue-700'}`}>{convitesDisponiveis}</p></div>
           </div>
-          <div className="bg-amber-50 border border-amber-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-amber-50 border border-amber-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-amber-200 text-amber-700 rounded-lg shrink-0"><AlertTriangle size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-amber-600 uppercase truncate">Excedentes</p><p className="text-base font-extrabold text-amber-700">{excedentesCount}</p></div>
           </div>
-          <div className="bg-green-50 border border-green-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-green-50 border border-green-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-green-200 text-green-700 rounded-lg shrink-0"><UserCheck size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-green-600 uppercase truncate">Adultos Conf.</p><p className="text-base font-extrabold text-green-700">{adultosConfirmados.length}</p></div>
           </div>
-          <div className="bg-emerald-50 border border-emerald-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-emerald-50 border border-emerald-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-emerald-200 text-emerald-700 rounded-lg shrink-0"><CheckCircle size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-emerald-600 uppercase truncate">Crianças Conf.</p><p className="text-base font-extrabold text-emerald-700">{criancasConfirmadas.length}</p></div>
           </div>
-          <div className="bg-yellow-50 border border-yellow-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-yellow-50 border border-yellow-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-yellow-200 text-yellow-700 rounded-lg shrink-0"><Clock size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-yellow-600 uppercase truncate">Adultos Pend.</p><p className="text-base font-extrabold text-yellow-700">{adultosPendentes.length}</p></div>
           </div>
-          <div className="bg-orange-50 border border-orange-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-orange-50 border border-orange-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-orange-200 text-orange-700 rounded-lg shrink-0"><Clock size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-orange-600 uppercase truncate">Crianças Pend.</p><p className="text-base font-extrabold text-orange-700">{criancasPendentes.length}</p></div>
           </div>
-          <div className="bg-red-50 border border-red-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-red-50 border border-red-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-red-200 text-red-700 rounded-lg shrink-0"><UserX size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-red-600 uppercase truncate">Recusados</p><p className="text-base font-extrabold text-red-700">{convitesRecusadosTotal}</p></div>
           </div>
-          <div className="bg-indigo-50 border border-indigo-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-indigo-50 border border-indigo-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-indigo-200 text-indigo-700 rounded-lg shrink-0"><Bookmark size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-indigo-600 uppercase truncate">Regulares</p><p className="text-base font-extrabold text-indigo-700">{regularesCount}</p></div>
           </div>
-          <div className="bg-purple-50 border border-purple-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+          <div className="dashboard-metric bg-purple-50 border border-purple-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-purple-200 text-purple-700 rounded-lg shrink-0"><Award size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-purple-600 uppercase truncate">Possibilidade</p><p className="text-base font-extrabold text-purple-700">{possibilidadeCount}</p></div>
           </div>
         </div>
 
         {/* BARRA DE FILTROS MÚLTIPLOS */}
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 space-y-3">
+        <div className="dashboard-filter-panel bg-white p-4 rounded-xl shadow-sm border border-gray-100 space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-600 flex items-center gap-1.5"><Filter size={14} /> Filtros Múltiplos:</span>
             {activeFilters.length > 0 && (
