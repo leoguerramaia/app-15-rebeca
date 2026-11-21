@@ -94,7 +94,7 @@ export default function Dashboard() {
     const val = e.target.value;
     setFamilySizeInput(val);
     const num = parseInt(val);
-    if (!isNaN(num) && num > 0 && num <= 15) {
+    if (!isNaN(num) && num > 0 && Num <= 15) {
       const current = [...familyMembers];
       if (num > current.length) {
         const added = Array(num - current.length).fill(null).map(() => ({ name: '', category: 'adulto' }));
@@ -481,7 +481,7 @@ export default function Dashboard() {
               <Sparkles size={14} className="text-amber-600" /><span className="fairytale-mark"><Flower2 size={14} /></span> Baile Real • Gestão Oficial
             </span>
             <h1 className="text-2xl sm:text-3xl font-semibold text-slate-800">Painel de Gestão - Aniversário 15 Anos</h1>
-            {currentUser && <p className="text-xs text-slate-500 mt-1">Logado como: <strong className="text-slate-800">{currentUser.name}</strong> (<span className="text-amber-600 uppercase font-bold">{currentUser.role}</span>)</p>}
+            {currentUser && <p className="text-xs text-slate-500 mt-1">Logado Como: <strong className="text-slate-800">{currentUser.name}</strong> (<span className="text-amber-600 uppercase font-bold">{currentUser.role}</span>)</p>}
           </div>
           <div className="flex gap-2 flex-wrap">
             <button onClick={() => router.push('/dashboard/users')} className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all">
@@ -579,7 +579,7 @@ export default function Dashboard() {
         {isReportModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
             <div className="bg-white max-w-md w-full p-6 rounded-2xl shadow-xl space-y-4">
-              <h2 className="text-lg font-bold text-slate-800">Centro de Relatórios</h2>
+              <h2 className="text-lg font-bold text-slate-800">Centro De Relatórios</h2>
               <p className="text-xs text-slate-500">Escolha o status e a ação desejada (Gerar Excel ou Visualizar para Impressão):</p>
               
               <div className="space-y-3">
@@ -678,11 +678,11 @@ export default function Dashboard() {
                     <label className="block text-xs font-semibold text-slate-600 mb-1">Categoria</label>
                     <select value={editCategory} onChange={(e) => setEditCategory(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm bg-white">
                       <option value="adulto">Adulto</option>
-                      <option value="crianca">Criança (&lt;9 anos)</option>
+                      <option value="crianca">Criança (&lt;9 Anos)</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-600 mb-1">Tipo de Convite</label>
+                    <label className="block text-xs font-semibold text-slate-600 mb-1">Tipo De Convite</label>
                     <select value={editCategoriaConvite} onChange={(e) => setEditCategoriaConvite(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm bg-white">
                       <option value="REGULARES">REGULARES</option>
                       <option value="POSSIBILIDADE">POSSIBILIDADE</option>
@@ -711,22 +711,22 @@ export default function Dashboard() {
               <h2 className="text-xl font-bold text-slate-800">Editar Grupo Familiar: {editingFamilyGroup}</h2>
               <form onSubmit={saveFamilyGroupEdit} className="space-y-3">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Nome da Família / Grupo</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Nome Da Família / Grupo</label>
                   <input type="text" value={editFamilyGroupName} onChange={(e) => setEditFamilyGroupName(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm" required />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">WhatsApp do Responsável</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">WhatsApp Do Responsável</label>
                   <input type="tel" value={editFamilyGroupPhone} onChange={(e) => setEditFamilyGroupPhone(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm" required />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Tipo de Convite (Geral)</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Tipo De Convite (Geral)</label>
                   <select value={editFamilyGroupCategoria} onChange={(e) => setEditFamilyGroupCategoria(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm bg-white">
                     <option value="REGULARES">REGULARES</option>
                     <option value="POSSIBILIDADE">POSSIBILIDADE</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-slate-600 mb-1">Observação do Grupo</label>
+                  <label className="block text-xs font-semibold text-slate-600 mb-1">Observação Do Grupo</label>
                   <select value={editFamilyGroupObs} onChange={(e) => setEditFamilyGroupObs(e.target.value)} className="w-full border rounded-lg p-2.5 text-sm bg-white">
                     {observacaoOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                   </select>
@@ -754,7 +754,7 @@ export default function Dashboard() {
                 <input type="tel" placeholder="WhatsApp" value={phone} onChange={(e) => setPhone(e.target.value)} className="border rounded-lg p-3 text-sm" required />
                 <select value={category} onChange={(e) => setCategory(e.target.value)} className="border rounded-lg p-3 text-sm bg-white">
                   <option value="adulto">Adulto</option>
-                  <option value="crianca">Criança (&lt;9 anos)</option>
+                  <option value="crianca">Criança (&lt;9 Anos)</option>
                 </select>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -793,7 +793,7 @@ export default function Dashboard() {
                       <input type="text" placeholder={`Nome do Membro ${i + 1}`} value={m.name} onChange={(e) => handleMemberChange(i, 'name', e.target.value)} className="flex-1 border bg-white rounded-lg p-2.5 text-sm" required />
                       <select value={m.category} onChange={(e) => handleMemberChange(i, 'category', e.target.value)} className="w-40 border bg-white rounded-lg p-2.5 text-sm">
                         <option value="adulto">Adulto</option>
-                        <option value="crianca">Criança (&lt;9 anos)</option>
+                        <option value="crianca">Criança (&lt;9 Anos)</option>
                       </select>
                     </div>
                   ))}
@@ -822,7 +822,7 @@ export default function Dashboard() {
               </thead>
               <tbody className="divide-y divide-gray-100 text-xs">
                 {loading ? (
-                  <tr><td colSpan="8" className="p-8 text-center text-gray-500">A carregar...</td></tr>
+                  <tr><td colSpan="8" className="p-8 text-center text-gray-500">A Carregar...</td></tr>
                 ) : (
                   <>
                     {/* 1. FAMÍLIAS REGULARES */}
