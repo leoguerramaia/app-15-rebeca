@@ -311,8 +311,9 @@ export default function Dashboard() {
   const normalizeFilterValue = (value) => (value || '')
     .toString()
     .normalize('NFD')
-    .replace(/[\\u0300-\\u036f]/g, '')
+    .replace(/\\p{M}/gu, '')
     .trim()
+    .replace(/\\s+/g, ' ')
     .toUpperCase();
 
   const toggleFilter = (filterName) => {
