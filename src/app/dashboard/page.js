@@ -476,23 +476,23 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-3 sm:p-6 font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#F4EFE6] p-3 sm:p-6 font-sans overflow-x-hidden">
       <div className="max-w-7xl mx-auto space-y-6">
         
         {/* CABEÇALHO */}
         <div className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100 text-pink-800 text-xs font-bold uppercase tracking-wider mb-1">
-              <Sparkles size={14} className="text-pink-600" /> Baile Real • Gestão Oficial
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-1">
+              <Sparkles size={14} className="text-amber-600" /> Baile Real • Gestão Oficial
             </span>
             <h1 className="text-xl sm:text-2xl font-bold text-slate-800">Painel de Gestão - Aniversário 15 Anos</h1>
-            {currentUser && <p className="text-xs text-slate-500 mt-1">Logado como: <strong className="text-slate-800">{currentUser.name}</strong> (<span className="text-pink-600 uppercase font-bold">{currentUser.role}</span>)</p>}
+            {currentUser && <p className="text-xs text-slate-500 mt-1">Logado como: <strong className="text-slate-800">{currentUser.name}</strong> (<span className="text-amber-600 uppercase font-bold">{currentUser.role}</span>)</p>}
           </div>
           <div className="flex gap-2 flex-wrap">
             <button onClick={() => router.push('/dashboard/users')} className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all">
               <Users size={14} /> Utilizadores
             </button>
-            <button onClick={() => setIsReportModalOpen(true)} className="bg-slate-900 hover:bg-slate-800 text-pink-200 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border border-pink-500/40">
+            <button onClick={() => setIsReportModalOpen(true)} className="bg-slate-900 hover:bg-slate-800 text-amber-200 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all border border-amber-500/40">
               <FileSpreadsheet size={14} /> Relatórios & Excel
             </button>
             <button onClick={handleLogout} className="bg-red-50 hover:bg-red-100 text-red-600 px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all">
@@ -507,9 +507,9 @@ export default function Dashboard() {
             <div className="p-2 bg-slate-200 text-slate-700 rounded-lg shrink-0"><Shield size={16}/></div>
             <div className="min-w-0"><p className="text-[9px] font-bold text-slate-500 uppercase truncate">Máximo</p><p className="text-base font-extrabold text-slate-800">{MAX_CONVIDADOS_ADULTOS}</p></div>
           </div>
-          <div className="bg-pink-50 border border-pink-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
-            <div className="p-2 bg-pink-200 text-pink-700 rounded-lg shrink-0"><Send size={16}/></div>
-            <div className="min-w-0"><p className="text-[9px] font-bold text-pink-600 uppercase truncate">Enviados</p><p className="text-base font-extrabold text-pink-700">{convitesEnviados}</p></div>
+          <div className="bg-amber-50 border border-amber-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
+            <div className="p-2 bg-amber-200 text-amber-700 rounded-lg shrink-0"><Send size={16}/></div>
+            <div className="min-w-0"><p className="text-[9px] font-bold text-amber-600 uppercase truncate">Enviados</p><p className="text-base font-extrabold text-amber-700">{convitesEnviados}</p></div>
           </div>
           <div className="bg-blue-50 border border-blue-200 p-2.5 rounded-xl shadow-sm flex items-center gap-2.5">
             <div className="p-2 bg-blue-200 text-blue-700 rounded-lg shrink-0"><Users size={16}/></div>
@@ -554,13 +554,13 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-600 flex items-center gap-1.5"><Filter size={14} /> Filtros Múltiplos:</span>
             {activeFilters.length > 0 && (
-              <button onClick={() => setActiveFilters([])} className="text-xs text-pink-600 hover:underline font-semibold">Limpar Filtros</button>
+              <button onClick={() => setActiveFilters([])} className="text-xs text-amber-600 hover:underline font-semibold">Limpar Filtros</button>
             )}
           </div>
           <div className="flex flex-wrap gap-1.5">
             <button
               onClick={() => toggleFilter('TODOS')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${activeFilters.length === 0 ? 'bg-pink-600 text-white border-pink-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-pink-50'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${activeFilters.length === 0 ? 'bg-amber-600 text-white border-amber-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-amber-50'}`}
             >
               TODOS
             </button>
@@ -570,7 +570,7 @@ export default function Dashboard() {
                 <button
                   key={filterName}
                   onClick={() => toggleFilter(filterName)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border flex items-center gap-1.5 ${isActive ? 'bg-pink-600 text-white border-pink-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-pink-50'}`}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border flex items-center gap-1.5 ${isActive ? 'bg-amber-600 text-white border-amber-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-amber-50'}`}
                 >
                   {isActive && <Check size={12} />}
                   {filterName}
@@ -620,7 +620,7 @@ export default function Dashboard() {
               <div className="p-4 bg-slate-900 text-white flex justify-between items-center">
                 <h3 className="font-bold text-sm">{printPreviewTitle}</h3>
                 <div className="flex gap-2">
-                  <button onClick={() => window.print()} className="bg-pink-600 hover:bg-pink-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
+                  <button onClick={() => window.print()} className="bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
                     <Printer size={14} /> Imprimir / Salvar PDF
                   </button>
                   <button onClick={() => setPrintPreviewData(null)} className="bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg text-xs font-bold">Fechar</button>
@@ -701,7 +701,7 @@ export default function Dashboard() {
                   </select>
                 </div>
                 <div className="flex gap-2 pt-2">
-                  <button type="submit" className="flex-1 bg-pink-600 text-white py-2.5 rounded-lg font-medium text-sm">Salvar</button>
+                  <button type="submit" className="flex-1 bg-amber-600 text-white py-2.5 rounded-lg font-medium text-sm">Salvar</button>
                   <button type="button" onClick={() => setEditingGuest(null)} className="flex-1 bg-gray-100 py-2.5 rounded-lg font-medium text-sm">Cancelar</button>
                 </div>
               </form>
@@ -737,7 +737,7 @@ export default function Dashboard() {
                   </select>
                 </div>
                 <div className="flex gap-2 pt-2">
-                  <button type="submit" className="flex-1 bg-pink-600 text-white py-2.5 rounded-lg font-medium text-sm">Salvar Alterações</button>
+                  <button type="submit" className="flex-1 bg-amber-600 text-white py-2.5 rounded-lg font-medium text-sm">Salvar Alterações</button>
                   <button type="button" onClick={() => setEditingFamilyGroup(null)} className="flex-1 bg-gray-100 py-2.5 rounded-lg font-medium text-sm">Cancelar</button>
                 </div>
               </form>
@@ -748,8 +748,8 @@ export default function Dashboard() {
         {/* Abas de Cadastro com Observação (Select) e Categoria */}
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
           <div className="flex gap-4 mb-6 border-b pb-4">
-            <button onClick={() => setTab('individual')} className={`px-5 py-2.5 rounded-lg font-medium text-sm ${tab === 'individual' ? 'bg-pink-600 text-white' : 'bg-gray-100 text-slate-600'}`}>Cadastrar Individual</button>
-            <button onClick={() => setTab('family')} className={`px-5 py-2.5 rounded-lg font-medium text-sm ${tab === 'family' ? 'bg-pink-600 text-white' : 'bg-gray-100 text-slate-600'}`}>Cadastrar Família</button>
+            <button onClick={() => setTab('individual')} className={`px-5 py-2.5 rounded-lg font-medium text-sm ${tab === 'individual' ? 'bg-amber-600 text-white' : 'bg-gray-100 text-slate-600'}`}>Cadastrar Individual</button>
+            <button onClick={() => setTab('family')} className={`px-5 py-2.5 rounded-lg font-medium text-sm ${tab === 'family' ? 'bg-amber-600 text-white' : 'bg-gray-100 text-slate-600'}`}>Cadastrar Família</button>
           </div>
 
           {tab === 'individual' && (
@@ -771,7 +771,7 @@ export default function Dashboard() {
                   {observacaoOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                 </select>
               </div>
-              <button type="submit" className="w-full bg-pink-600 text-white py-3 rounded-lg font-medium text-sm">Adicionar Convidado</button>
+              <button type="submit" className="w-full bg-amber-600 text-white py-3 rounded-lg font-medium text-sm">Adicionar Convidado</button>
             </form>
           )}
 
@@ -792,7 +792,7 @@ export default function Dashboard() {
                 </select>
               </div>
               {familyMembers.length > 0 && (
-                <div className="bg-pink-50 p-4 rounded-xl space-y-3">
+                <div className="bg-amber-50 p-4 rounded-xl space-y-3">
                   {familyMembers.map((m, i) => (
                     <div key={i} className="flex gap-3">
                       <input type="text" placeholder={`Nome do Membro ${i + 1}`} value={m.name} onChange={(e) => handleMemberChange(i, 'name', e.target.value)} className="flex-1 border bg-white rounded-lg p-2.5 text-sm" required />
@@ -804,7 +804,7 @@ export default function Dashboard() {
                   ))}
                 </div>
               )}
-              <button type="submit" className="w-full bg-pink-600 text-white py-3 rounded-lg font-medium text-sm">Cadastrar Família</button>
+              <button type="submit" className="w-full bg-amber-600 text-white py-3 rounded-lg font-medium text-sm">Cadastrar Família</button>
             </form>
           )}
         </div>
@@ -841,12 +841,12 @@ export default function Dashboard() {
                       const tipoConvite = members[0]?.categoria_convite || 'REGULARES';
                       return (
                         <Fragment key={groupKey}>
-                          <tr className="bg-pink-50/30 border-t-2 border-pink-100">
+                          <tr className="bg-amber-50/30 border-t-2 border-amber-100">
                             <td className="p-2.5 font-bold text-slate-800" colSpan="2">
                               <div className="flex items-center gap-1.5 flex-wrap">
-                                <button onClick={() => toggleExpandFamily(groupKey)} className="text-pink-600 bg-white p-1 rounded-md border">{isExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}</button>
+                                <button onClick={() => toggleExpandFamily(groupKey)} className="text-amber-600 bg-white p-1 rounded-md border">{isExpanded ? <ChevronUp size={13} /> : <ChevronDown size={13} />}</button>
                                 <span className="truncate">Família {groupKey}</span>
-                                <span className="text-[10px] px-1.5 py-0.5 bg-pink-100 text-pink-700 rounded-full">{members.length} membros</span>
+                                <span className="text-[10px] px-1.5 py-0.5 bg-amber-100 text-amber-700 rounded-full">{members.length} membros</span>
                                 <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 text-emerald-800">{tipoConvite}</span>
                               </div>
                             </td>
@@ -863,7 +863,7 @@ export default function Dashboard() {
                             const memberSt = m.attendance_status || (m.confirmed ? 'confirmado' : 'pendente');
                             const formattedCategory = (m.category || '').toLowerCase() === 'crianca' ? 'Criança' : 'Adulto';
                             return (
-                              <tr key={m.id} className="bg-white border-l-4 border-l-pink-400">
+                              <tr key={m.id} className="bg-white border-l-4 border-l-amber-400">
                                 <td className="p-2.5 pl-6 text-slate-700 font-medium truncate" colSpan="2">{m.name}</td>
                                 <td className="p-2.5"><span className="text-[10px] px-1.5 py-0.5 bg-slate-100 rounded">{formattedCategory}</span></td>
                                 <td className="p-2.5 text-[11px] text-slate-500 truncate">{m.phone}</td>

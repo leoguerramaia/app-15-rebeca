@@ -91,9 +91,9 @@ function RsvpContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="text-center space-y-3">
-          <div className="w-8 h-8 border-4 border-pink-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-8 h-8 border-4 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-slate-600 font-medium">A carregar o seu convite especial...</p>
         </div>
       </div>
@@ -102,7 +102,7 @@ function RsvpContent() {
 
   if (!guest) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center max-w-md w-full space-y-3">
           <h1 className="text-2xl font-bold text-slate-800">Convite não encontrado</h1>
           <p className="text-slate-600">Verifique o link recebido ou entre em contacto com os organizadores.</p>
@@ -118,26 +118,26 @@ function RsvpContent() {
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrCardText)}`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center p-4 font-sans">
-      <div className="bg-white max-w-lg w-full p-8 rounded-3xl shadow-xl border border-pink-100 text-center space-y-6 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6 font-sans">
+      <div className="bg-white max-w-lg w-full p-8 rounded-3xl shadow-xl border border-amber-100 text-center space-y-6 relative overflow-hidden">
         
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-500"></div>
+        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-amber-400 via-amber-400 to-amber-500"></div>
 
         <div className="space-y-2 pt-2">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-xs font-bold tracking-wider uppercase">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold tracking-wider uppercase">
             <Sparkles size={14} /> Convite Especial
           </span>
           <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">Aniversário 15 Anos Rebeca Guerra</h1>
-          <p className="text-slate-600 text-sm">Olá, <strong className="text-pink-600">{guest.name}</strong>! É uma alegria imensa contar com a sua presença.</p>
+          <p className="text-slate-600 text-sm">Olá, <strong className="text-amber-600">{guest.name}</strong>! É uma alegria imensa contar com a sua presença.</p>
         </div>
 
-        <div className="bg-pink-50/50 p-4 rounded-2xl border border-pink-100 flex flex-col gap-2 text-left text-sm text-slate-700">
+        <div className="bg-amber-50/50 p-4 rounded-2xl border border-amber-100 flex flex-col gap-2 text-left text-sm text-slate-700">
           <div className="flex items-center gap-3">
-            <Calendar className="text-pink-600 flex-shrink-0" size={18} />
+            <Calendar className="text-amber-600 flex-shrink-0" size={18} />
             <span>Confirme sua presença com antecedência.</span>
           </div>
           <div className="flex items-center gap-3">
-            <MapPin className="text-pink-600 flex-shrink-0" size={18} />
+            <MapPin className="text-amber-600 flex-shrink-0" size={18} />
             <span>Local exclusivo em Teresina - PI</span>
           </div>
         </div>
@@ -176,7 +176,7 @@ function RsvpContent() {
               <img src={qrImageUrl} alt="QR Code de Acesso" className="w-full h-auto rounded-lg" />
               <div className="text-[11px] text-slate-500 font-semibold leading-tight">
                 <p className="text-slate-800 font-bold">{guest.name}</p>
-                <p className="text-pink-600 mt-0.5">Pessoal e Intransferível</p>
+                <p className="text-amber-600 mt-0.5">Pessoal e Intransferível</p>
               </div>
             </div>
 
@@ -213,9 +213,9 @@ function RsvpContent() {
 export default function RsvpPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-[#F4EFE6] via-[#F4EFE6] to-emerald-50 flex items-center justify-center p-3 sm:p-6">
         <div className="text-center space-y-3">
-          <div className="w-8 h-8 border-4 border-pink-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-8 h-8 border-4 border-amber-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-slate-600 font-medium">A carregar...</p>
         </div>
       </div>
