@@ -284,3 +284,7 @@ body:has(.max-w-7xl) { background:#0B1D3A!important; }
   .guest-table .guest-member-row td:first-child::before { content:"Convidado"; }
   .guest-table tbody td[colspan] { grid-column:1/-1; }
 }
+
+@media (max-width:700px) {
+  .guest-table tbody { background:#0B1D3A!important; padding:12px!important; border-radius:18px!important; }
+}
