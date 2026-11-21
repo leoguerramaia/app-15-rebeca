@@ -182,3 +182,92 @@ table {
 [class~="border-slate-700"], [class~="border-blue-900"] {
   border-color: #2A4B7C !important;
 }
+
+
+/* Direção visual: editorial, contemporânea e inspirada no conto */
+body {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.012em;
+  background-image:
+    radial-gradient(ellipse at 50% -25%, color-mix(in srgb, #C2A24A 12%, transparent), transparent 58%);
+}
+
+h1, h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600 !important;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+h3, h4, label, button, input, select, textarea {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+button {
+  min-height: 42px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid color-mix(in srgb, #C2A24A 70%, white);
+  outline-offset: 3px;
+}
+
+input, select, textarea {
+  border: 1px solid color-mix(in srgb, #0B1D3A 15%, #F4EFE6);
+  box-shadow: inset 0 1px 2px rgb(11 29 58 / 3%);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #C2A24A;
+  box-shadow: 0 0 0 4px rgb(194 162 74 / 15%);
+}
+
+[class~="shadow-sm"][class~="rounded-2xl"],
+[class~="shadow-sm"][class~="rounded-xl"],
+[class~="shadow-xl"][class~="rounded-2xl"],
+[class~="shadow-2xl"][class~="rounded-3xl"] {
+  border-color: color-mix(in srgb, #C2A24A 23%, #F4EFE6) !important;
+  box-shadow: 0 12px 34px rgb(11 29 58 / 7%), 0 2px 8px rgb(11 29 58 / 4%) !important;
+}
+
+main > [class~="max-w-md"] {
+  position: relative;
+  padding: clamp(1.5rem, 6vw, 2.5rem) !important;
+  border: 1px solid color-mix(in srgb, #C2A24A 35%, #F4EFE6) !important;
+  box-shadow: 0 26px 80px rgb(11 29 58 / 12%), 0 4px 18px rgb(11 29 58 / 5%) !important;
+}
+
+.fairytale-mark {
+  display: inline-grid;
+  width: 2.15rem;
+  height: 2.15rem;
+  place-items: center;
+  border: 1px solid rgb(194 162 74 / 48%);
+  border-radius: 999px;
+  background: rgb(194 162 74 / 12%);
+  color: #8A6A1F;
+  vertical-align: middle;
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  h2 { font-size: clamp(1.4rem, 6vw, 1.8rem); }
+
+  main > [class~="max-w-md"] {
+    border-radius: 24px !important;
+  }
+
+  [class~="max-w-7xl"], [class~="max-w-5xl"], [class~="max-w-xl"] {
+    width: 100%;
+  }
+
+  button {
+    min-height: 44px;
+  }
+}
