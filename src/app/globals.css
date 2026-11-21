@@ -230,3 +230,6 @@ body:has(.max-w-7xl) { background:#0B1D3A!important; }
   background:#F1F3F6!important;
   border-color:#AEBCCC!important;
 }
+
+/* Fundo principal das áreas internas do app */
+.min-h-screen { background-color:#0B1D3A!important; }
