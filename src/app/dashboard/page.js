@@ -308,71 +308,60 @@ export default function Dashboard() {
   };
 
   // --- FILTROS MÚLTIPLOS ---
+  const normalizeFilterValue = (value) => (value || '')
+    .toString()
+    .normalize('NFD')
+    .replace(/[\\u0300-\\u036f]/g, '')
+    .trim()
+    .toUpperCase();
+
   const toggleFilter = (filterName) => {
-    if (filterName === 'TODOS') {
+    if (normalizeFilterValue(filterName) === 'TODOS') {
       setActiveFilters([]);
       return;
     }
     setActiveFilters(prev => {
       if (prev.includes(filterName)) {
         return prev.filter(f => f !== filterName);
-      } else {
-        return [...prev, filterName];
       }
+      return [...prev, filterName];
     });
   };
 
-  const filteredGuests = guests.filter(g => {
-    if (activeFilters.length === 0) return true;
+  const normalizedFilters = activeFilters.map(normalizeFilterValue);
+  const statusFilters = ['CONFIRMADOS', 'PENDENTES', 'RECUSADOS'];
+  const categoryFilters = ['ADULTOS', 'CRIANCAS'];
+  const typeFilters = ['REGULARES', 'POSSIBILIDADE'];
+  const obsFilters = observacaoOptions.map(normalizeFilterValue);
+  const activeStatus = normalizedFilters.filter(f => statusFilters.includes(f));
+  const activeCategory = normalizedFilters.filter(f => categoryFilters.includes(f));
+  const activeType = normalizedFilters.filter(f => typeFilters.includes(f));
+  const activeObs = normalizedFilters.filter(f => obsFilters.includes(f));
 
-    const st = (g.attendance_status || (g.confirmed ? 'confirmado' : 'pendente')).toUpperCase();
-    const cat = (g.category || '').toUpperCase();
-    const tipo = (g.categoria_convite || 'REGULARES').toUpperCase();
-    const obs = (g.observacao || '').toUpperCase();
+  const matchesActiveFilters = (guest) => {
+    if (normalizedFilters.length === 0) return true;
 
-    let matches = true;
+    const status = normalizeFilterValue(guest.attendance_status || (guest.confirmed ? 'confirmado' : 'pendente'));
+    const category = normalizeFilterValue(guest.category);
+    const inviteType = normalizeFilterValue(guest.categoria_convite || 'REGULARES');
+    const observation = normalizeFilterValue(guest.observacao);
 
-    const statusFilters = ['CONFIRMADOS', 'PENDENTES', 'RECUSADOS'];
-    const categoryFilters = ['ADULTOS', 'CRIANCAS'];
-    const typeFilters = ['REGULARES', 'POSSIBILIDADE'];
-    const obsFilters = observacaoOptions.map(o => o.toUpperCase());
+    const matchesStatus = activeStatus.length === 0 || activeStatus.some(filter =>
+      (filter === 'CONFIRMADOS' && status === 'CONFIRMADO') ||
+      (filter === 'PENDENTES' && status === 'PENDENTE') ||
+      (filter === 'RECUSADOS' && status === 'RECUSADO')
+    );
+    const matchesCategory = activeCategory.length === 0 || activeCategory.some(filter =>
+      (filter === 'ADULTOS' && category === 'ADULTO') ||
+      (filter === 'CRIANCAS' && category === 'CRIANCA')
+    );
+    const matchesType = activeType.length === 0 || activeType.includes(inviteType);
+    const matchesObservation = activeObs.length === 0 || activeObs.includes(observation);
 
-    const activeStatus = activeFilters.filter(f => statusFilters.includes(f));
-    const activeCategory = activeFilters.filter(f => categoryFilters.includes(f));
-    const activeType = activeFilters.filter(f => typeFilters.includes(f));
-    const activeObs = activeFilters.filter(f => obsFilters.includes(f));
+    return matchesStatus && matchesCategory && matchesType && matchesObservation;
+  };
 
-    if (activeStatus.length > 0) {
-      const matchSt = activeStatus.some(f => {
-        if (f === 'CONFIRMADOS') return st === 'CONFIRMADO';
-        if (f === 'PENDENTES') return st === 'PENDENTE';
-        if (f === 'RECUSADOS') return st === 'RECUSADO';
-        return false;
-      });
-      if (!matchSt) matches = false;
-    }
-
-    if (activeCategory.length > 0) {
-      const matchCat = activeCategory.some(f => {
-        if (f === 'ADULTOS') return cat !== 'CRIANCA';
-        if (f === 'CRIANCAS') return cat === 'CRIANCA';
-        return false;
-      });
-      if (!matchCat) matches = false;
-    }
-
-    if (activeType.length > 0) {
-      const matchType = activeType.some(f => tipo === f);
-      if (!matchType) matches = false;
-    }
-
-    if (activeObs.length > 0) {
-      const matchObs = activeObs.some(f => obs === f);
-      if (!matchObs) matches = false;
-    }
-
-    return matches;
-  });
+  const filteredGuests = guests.filter(matchesActiveFilters);
 
   // --- SEPARAÇÃO E ORDENAÇÃO ALFABÉTICA POR CLASSIFICAÇÃO ---
   const individualGuests = filteredGuests.filter(g => !g.family_group);
