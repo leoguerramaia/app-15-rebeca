@@ -610,9 +610,9 @@ export default function Dashboard() {
 
         {/* Modal de Pré-Visualização para Impressão */}
         {printPreviewData && (
-          <div className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
+          <div data-print-root="true" className="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50">
             <div className="bg-white max-w-4xl w-full max-h-[90vh] flex flex-col rounded-2xl shadow-2xl overflow-hidden">
-              <div className="p-4 bg-slate-900 text-white flex justify-between items-center">
+              <div className="print-toolbar p-4 bg-slate-900 text-white flex justify-between items-center">
                 <h3 className="font-bold text-sm">{printPreviewTitle}</h3>
                 <div className="flex gap-2">
                   <button onClick={() => window.print()} className="bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
@@ -622,7 +622,7 @@ export default function Dashboard() {
                 </div>
               </div>
               
-              <div className="p-6 overflow-y-auto space-y-4 bg-white text-slate-800">
+              <div className="print-report-body p-6 overflow-y-auto space-y-4 bg-white text-slate-800">
                 <div className="text-center border-b pb-4">
                   <h2 className="text-lg font-bold">Aniversário 15 Anos • Rebeca Guerra</h2>
                   <p className="text-xs text-slate-500">{printPreviewTitle} — Gerado em {new Date().toLocaleDateString()}</p>
