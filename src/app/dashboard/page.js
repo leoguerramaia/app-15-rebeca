@@ -316,6 +316,11 @@ export default function Dashboard() {
     .replace(/\s+/g, ' ')
     .toUpperCase();
 
+  const formatTitleCase = (value) => (value || '')
+    .toString()
+    .toLocaleLowerCase('pt-BR')
+    .replace(/(^|[\\s\\-/])([\\p{L}])/gu, (_, separator, letter) => separator + letter.toLocaleUpperCase('pt-BR'));
+
   const toggleFilter = (filterName) => {
     if (normalizeFilterValue(filterName) === 'TODOS') {
       setActiveFilters([]);
@@ -563,7 +568,7 @@ export default function Dashboard() {
               const isActive = activeFilters.includes(filterName);
               return (
                 <button
-                  key={filterName}
+                  key={formatTitleCase(filterName)}
                   onClick={() => toggleFilter(filterName)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all border flex items-center gap-1.5 ${isActive ? 'bg-amber-600 text-white border-amber-600 shadow-sm' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-amber-50'}`}
                 >
