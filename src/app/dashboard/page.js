@@ -422,15 +422,17 @@ export default function Dashboard() {
   const excedentesCount = calculoExcedentes < 0 ? Math.abs(calculoExcedentes) : 0;
 
   // --- GERAÇÃO DE EXCEL (.xlsx) ---
+  const getReportGuests = (statusFilter) => filteredGuests.filter(g => {
+    const status = (g.attendance_status || (g.confirmed ? 'confirmado' : 'pendente')).toLowerCase();
+    if (statusFilter === 'TODOS') return true;
+    if (statusFilter === 'CONFIRMADOS') return status === 'confirmado';
+    if (statusFilter === 'PENDENTES') return status === 'pendente';
+    if (statusFilter === 'RECUSADOS') return status === 'recusado';
+    return false;
+  });
+
   const exportExcelFile = (statusFilter) => {
-    const targetGuests = guests.filter(g => {
-      const st = (g.attendance_status || (g.confirmed ? 'confirmado' : 'pendente')).toLowerCase();
-      if (statusFilter === 'TODOS') return true;
-      if (statusFilter === 'CONFIRMADOS' && st === 'confirmado') return true;
-      if (statusFilter === 'PENDENTES' && st === 'pendente') return true;
-      if (statusFilter === 'RECUSADOS' && st === 'recusado') return true;
-      return false;
-    });
+    const targetGuests = getReportGuests(statusFilter);
 
     if (targetGuests.length === 0) {
       alert(`Nenhum registo encontrado para o status: ${statusFilter}`);
@@ -456,14 +458,7 @@ export default function Dashboard() {
 
   // --- VISUALIZAR PARA IMPRESSÃO ---
   const openPrintPreview = (statusFilter) => {
-    const targetGuests = guests.filter(g => {
-      const st = (g.attendance_status || (g.confirmed ? 'confirmado' : 'pendente')).toLowerCase();
-      if (statusFilter === 'TODOS') return true;
-      if (statusFilter === 'CONFIRMADOS' && st === 'confirmado') return true;
-      if (statusFilter === 'PENDENTES' && st === 'pendente') return true;
-      if (statusFilter === 'RECUSADOS' && st === 'recusado') return true;
-      return false;
-    });
+    const targetGuests = getReportGuests(statusFilter);
 
     if (targetGuests.length === 0) {
       alert(`Nenhum registo encontrado para o status: ${statusFilter}`);
