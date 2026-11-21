@@ -162,6 +162,15 @@ export default function HomePage() {
             <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold tracking-wider uppercase border border-amber-300 shadow-sm font-sans">
               <Crown size={14} className="text-amber-600" /><span className="fairytale-mark"><Flower2 size={15} /></span> Baile Real • Bela e a Fera
             </span>
+            <div className="rose-illustration" aria-hidden="true">
+              <svg viewBox="0 0 160 190" role="img">
+                <path className="rose-glass" d="M35 34h90l-7 94c-1 18-16 31-38 31s-37-13-38-31l-7-94Z" />
+                <path className="rose-stem" d="M80 125c2-24 0-40-7-54" />
+                <path className="rose-leaf" d="M75 96c-18-3-26-14-24-26 15 1 24 9 24 26Zm6-18c-1-16 7-26 19-29 3 14-4 25-19 29Z" />
+                <path className="rose-petal" d="M73 68c-8-8-4-19 6-22-1-12 13-17 21-8 10-4 19 7 13 16 8 9 1 20-10 19-7 9-20 6-21-4-5 3-11 2-14-1Z" />
+                <path className="rose-base" d="M27 34h106M40 170h80" />
+              </svg>
+            </div>
             <h1 className="text-4xl sm:text-5xl font-semibold text-slate-900 font-serif leading-tight">
               Aniversário 15 Anos<br />Rebeca Guerra Maia
             </h1>
